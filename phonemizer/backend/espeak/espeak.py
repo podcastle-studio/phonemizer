@@ -41,10 +41,11 @@ class EspeakBackend(BaseEspeakBackend):
                  tie: Union[bool, str] = False,
                  language_switch: LanguageSwitch = 'keep-flags',
                  words_mismatch: WordMismatch = 'ignore',
-                 logger: Optional[Logger] = None):
+                 logger: Optional[Logger] = None,
+                 path: str = None):
         super().__init__(
             language, punctuation_marks=punctuation_marks,
-            preserve_punctuation=preserve_punctuation, logger=logger)
+            preserve_punctuation=preserve_punctuation, logger=logger, path=path)
 
         self._espeak.set_voice(language)
         self._with_stress = with_stress
